@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8">
+    <title>Hvorfor IT?</title>
+    <style>
+        .container{
+            margin-right: auto;
+            margin-left:  auto;
+            max-width: 960px;
+            padding-right: 10px;
+            padding-left:  10px;
+        }
+        .tekst{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            height: 25px;
+        }
+        .pil{
+            font-size: 100px;
+            height: 25px;
+            margin-top: 75px;
+        }
+        #div1{
+            display: flex;
+            height: 280px;
+            margin-left: ;
+        }
+        #bildePerson{
+            width: 150px;
+            margin-top: 50px;
+        }
+
+        #intervjuTekst{
+            margin-left: 10px;
+            margin-right: 20px;
+            margin-top: 50px;
+            width: 300px;
+            height: 280px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Hvorfor velge IT på Sandvika? </h1>
+    <p>
+        Alle har forskjellige forutsetninger for alle fag, kanskje du ikke vet hva programmering er, eller kanskje du har holdt på lenge.
+
+        Det spiller ingen rolle, IT-faget er et fag for alle som har interesse eller kan tenke seg å lære mer om data, design eller programmeringsspråk.
+
+        Sandvika VGS har flinke IT-lærere og er en skole med fokus på digital læring.
+
+        Ta en titt på prosjekter som elever har gjennomført eller noen intervjuer av tidligere IT-elever:
+
+        <br>
+        <br>
+        Egne prosjekter er en stor del av IT-hverdagen, og dette medfører en del frihet. Her kan du se eksempler på noen av prosjektene vi har gjennomført:
+    </p>
+    <ul>
+        <li>
+            <a href="https://arneeme.github.io/Prosjekt%20-%20Spill%20med%20kast%20FERDIG/Indeks.html" target="_blank"> Kanonspill!</a>
+        </li>
+        <li>
+            <a href="https://myguy2209.github.io/IT2%20Andre%20semester/Spill%20Prosjekt/Tetris/Project%202'.html?_ijt=5t697oref5uvsoes5ojaplnq3k" target="_blank">Tetris</a>
+        </li>
+    </ul>
+
+    <p> Her kan du også se intervjuer av tidligere elever og bilder fra timen!</p>
+    <div id="div1">
+        <p class="pil" onclick="forrige()">&#8592</p>
+        <div>
+            <img src="eksempelBilde.jpg" id="bildePerson">
+        </div>
+
+        <div id="intervjuTekst">
+            <h3 class="tekst" id="navn">Kari Nordmann</h3>
+            <h4 class="tekst"> Favoritt-fag?</h4>
+            <p class="tekst" id="svar1"> Matte, engelsk, norsk</p>
+            <h4 class="tekst"> Hvorfor velge IT?</h4>
+            <p class="tekst" id="svar2">Det er veldig gøy og kjempe supert morsomt eller noe sånt</p>
+
+        </div>
+        <div>
+            <img src="eksempelBilde2.jpg" id="bildeGruppe" >
+        </div>
+        <p class="pil" onclick="neste()">&#8594</p>
+    </div>
+</div>
+
+<script>
+    const navn = document.querySelector("#navn");
+    const svar1 = document.querySelector("#svar1");
+    const svar2 = document.querySelector("svar2");
+    const bildePerson = document.querySelector("#bildePerson");
+    const bildeGruppe = document.querySelector("#bildeGruppe");
+
+    let person1 = ["Arne Natskår", "Fysikk og IT", "It er gøy!", "bilde1.jpg", "bilde2.jpg"]
+
+    let personArray =  [person1]
+
+    //Kode som gjør at du kan bla igjennom arrayen og bytte ut tekst og bilde verdiene i HTML
+
+
+</script>
+
+</body>
+</html>
