@@ -5,23 +5,29 @@
     <title>Powerpoint og oppgaver</title>
     <style>
 
+        p {
+            font-size: 18px;
+        }
         .wrapper {
             border: solid 1px black;
             position: absolute;
-            top: 150px;
+            top: 75px;
             width: 600px;
-            background: url("https://www.teachprivacy.com/wp-content/uploads/Hacker1.jpg");
-            background-size: auto;
+            background-color: white;
             display: none;
         }
         #ukeDiv {
             position: relative;
             margin-top: 10px;
-
         }
         body {
             background: url("https://previews.123rf.com/images/hugofelix/hugofelix1202/hugofelix120200070/12529281-computer-hacker-in-suit-and-tie.jpg");
             background-size: cover;
+        }
+        #setupDiv {
+            position: absolute;
+            left: 1100px;
+            top: 75px;
         }
 
 
@@ -32,11 +38,17 @@
 
     <h1 id="overskrift">Ukens oppgaver</h1>
 
-    <input type="number" placeholder="Ukenummer" id="inpUke" min="1">
-    <input type="text" placeholder="Powerpoint link" id="inpPowerpoint">
-    <input type="text" placeholder="Oppgaveteksten" id="oppgaver">
-    <button id="btnLag">Lag uke</button>
-
+    <div id="setupDiv">
+        <p>Ukenummer</p>
+        <input type="number" placeholder="Ukenummer" id="inpUke" min="1">
+        <p>Powerpoint link</p>
+        <input type="text" placeholder="Powerpoint link" id="inpPowerpoint">
+        <p>Oppgaveteksten</p>
+        <input type="text" placeholder="Oppgaveteksten" id="oppgaver">
+        <p>Eventuell bildelink</p>
+        <input type="text" id="bildeLink">
+        <button id="btnLag">Lag uke</button>
+    </div>
 
     <div class="wrapper">
 
@@ -48,6 +60,7 @@
         const inpUke = document.querySelector("#inpUke");
         const inpPowerpoint = document.querySelector("#inpPowerpoint");
         const inpOppgaver = document.querySelector("#oppgaver");
+        const inpBilde = document.querySelector("#bildeLink");
         const btnLag = document.querySelector("#btnLag");
 
 
@@ -56,17 +69,33 @@
 
             let ukeDiv = document.createElement("div");
             let ukeNr  = document.createElement("P");
+            let powerpointOverskrift = document.createElement("P");
             let powerpoint = document.createElement("P");
+            let ukeTekstOverskrift = document.createElement("P");
             let ukeTekst = document.createElement("P");
+            let bilde = document.createElement("img");
 
             ukeNr.innerText = "Uke " +  inpUke.value;
             ukeNr.style.fontSize = "25px";
+            ukeNr.style.fontWeight = "bold";
+            powerpointOverskrift.style.fontWeight = "bold";
+            powerpointOverskrift.innerText = "Powerpoint link";
             powerpoint.innerText = inpPowerpoint.value;
+            ukeTekstOverskrift.style.fontWeight = "bold";
+            ukeTekstOverskrift.innerText = "Oppgavene denne uken";
             ukeTekst.innerText = inpOppgaver.value;
+            bilde.src = inpBilde.value;
+            bilde.style.width = "relative";
+            bilde.style.height = "relative";
 
             ukeDiv.appendChild(ukeNr);
+            ukeDiv.appendChild(powerpointOverskrift);
             ukeDiv.appendChild(powerpoint);
+            ukeDiv.appendChild(ukeTekstOverskrift);
             ukeDiv.appendChild(ukeTekst);
+            if (inpBilde.value.length !== 0){
+                ukeDiv.appendChild(bilde);
+            }
             wrapper.insertBefore(ukeDiv, wrapper.childNodes[0]);
         }
 
