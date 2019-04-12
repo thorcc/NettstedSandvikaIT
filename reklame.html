@@ -35,7 +35,7 @@
             margin-right: 20px;
             margin-top: 50px;
             width: 300px;
-            height: 280px;
+            height: 230px;
 
         }
 
@@ -51,12 +51,12 @@
 
         Sandvika VGS har flinke IT-lærere og er en skole med fokus på digital læring.
 
-        Ta en titt på prosjekter som elever har gjennomført eller noen intervjuer av tidligere IT-elever:
+        Ta en titt på prosjekter som elever har gjennomført eller noen intervjuer av tidligere IT-elever.
 
         <br>
-        <br>
-        Egne prosjekter er en stor del av IT-hverdagen, og dette medfører en del frihet. Her kan du se eksempler på noen av prosjektene vi har gjennomført:
     </p>
+    <h3>Her kan du se eksempler på noen av prosjektene vi har gjennomført</h3>
+    <p> Egne prosjekter er en stor del av IT-hverdagen,  medfører en del frihet. </p>
     <ul>
         <li>
             <a href="https://arneeme.github.io/Prosjekt%20-%20Spill%20med%20kast%20FERDIG/Indeks.html" target="_blank"> Kanonspill!</a>
@@ -66,11 +66,11 @@
         </li>
     </ul>
 
-    <p> Her kan du også se intervjuer av tidligere elever og bilder fra timen!</p>
+    <h3> Her kan du se intervjuer av tidligere elever og bilder fra timen!</h3>
     <div id="div1">
         <p class="pil" onclick="forrige()">&#8592</p>
         <div>
-            <img src="eksempelBilde.jpg" id="bildePerson">
+            <img src="bilde1.jpg" id="bildePerson">
         </div>
 
         <div id="intervjuTekst">
@@ -82,7 +82,7 @@
 
         </div>
         <div>
-            <img src="eksempelBilde2.jpg" id="bildeGruppe" >
+            <img src="bilde3.jpg" id="bildeGruppe" height="280px" >
         </div>
         <p class="pil" onclick="neste()">&#8594</p>
     </div>
@@ -91,13 +91,49 @@
 <script>
     const navn = document.querySelector("#navn");
     const svar1 = document.querySelector("#svar1");
-    const svar2 = document.querySelector("svar2");
+    const svar2 = document.querySelector("#svar2");
     const bildePerson = document.querySelector("#bildePerson");
     const bildeGruppe = document.querySelector("#bildeGruppe");
 
-    let person1 = ["Arne Natskår", "Fysikk og IT", "It er gøy!", "bilde1.jpg", "bilde2.jpg"]
+    let person1 = ["Arne Natskår", "Fysikk og IT", "It er gøy!", "bilde1.jpg", "bilde3.jpg"];
+    let person2 = ["Navn på person", "Dette er mine favorittfag", "it er gøy", "bilde1.jpg", "bilde3.jpg"];
+    let person3 =["Heisann", "Yiha fag", "It er dåååårlig", "bilde3.jpg", "bilde1.jpg"];
 
-    let personArray =  [person1]
+    let personArray =  [person1, person2, person3];
+    let n = 0;
+
+    function neste() {
+        if ( n < personArray.length-1) {
+            n++
+        }
+        else {
+            n=0
+        }
+        navn.innerHTML = personArray[n][0];
+        svar1.innerHTML = personArray[n][1];
+        svar2.innerHTML = personArray[n][2];
+        bildePerson.src = personArray[n][3];
+        bildeGruppe.src = personArray[n][4];
+    }
+
+    function forrige() {
+        if ( n > 0) {
+            n--
+        }
+        else {
+            n = personArray.length-1
+        }
+
+        navn.innerHTML = personArray[n][0];
+        svar1.innerHTML = personArray[n][1];
+        svar2.innerHTML = personArray[n][2];
+        bildePerson.src = personArray[n][3];
+        bildeGruppe.src = personArray[n][4];
+
+
+    }
+
+
 
     //Kode som gjør at du kan bla igjennom arrayen og bytte ut tekst og bilde verdiene i HTML
 
