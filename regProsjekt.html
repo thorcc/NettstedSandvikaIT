@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrer Prosjekt</title>
+    <style>
+        body{
+            padding: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            font-family: Geneva;
+        }
+        form{
+            width: 40%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px;
+        }
+        button, input, select{
+            height: 40px;
+        }
+        button{
+            background-color: darkseagreen;
+            color: white;
+            text-transform: uppercase;
+        }
+        h1{
+            text-transform: uppercase;
+        }
+        .span2{
+            grid-column: span 2;
+        }
+        #inpBes{
+            height: 100px;
+            border: lightgray 1px solid;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Registrer Prosjekt</h1>
+    </header>
+
+    <main>
+        <form>
+            <input id="inpNavn" type="text" placeholder="Navn">
+            <select id="selKlasse">
+                <option class="klasse" value="IT2T">IT2 Torsdag</option>
+                <option class="klasse" value="IT2F">IT2 Fredag</option>
+                <option class="klasse" value="IT1">IT1 Mandag</option>
+            </select>
+            <input id="inpLink" class="span2" type="text" placeholder="Link til nettside">
+            <textarea id="inpBes" class="span2" type="text" placeholder="Beskrivelse"></textarea>
+            <button id="btnSub" class="span2">Send</button>
+        </form>
+
+    </main>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCDson5l0OwJLskgfqQowqG1ksziq5NgoU",
+            authDomain: "data-816f7.firebaseapp.com",
+            databaseURL: "https://data-816f7.firebaseio.com",
+            projectId: "data-816f7",
+            storageBucket: "data-816f7.appspot.com",
+            messagingSenderId: "501788615625"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        const db = firebase.database();
+        const prosjekter = db.ref("prosjekter");
+
+        const inpNavn = document.querySelector("#inpNavn");
+        const inpLink = document.querySelector("#inpLink");
+        const inpBes = document.querySelector("#inpBes");
+        const btnSub = document.querySelector("#btnSub");
+        const selKlasse = document.querySelector("#selKlasse");
+
+        let klasse = document.querySelectorAll(".klasse");
+
+
+        btnSub.onclick = lagrehjelp;
+
+        function lagrehjelp(event, snapshot) {
+            event.preventDefault();
+            if (inpNavn.value === ""){
+                alert("Du må fylle ut navn");
+            } else if(inpLink.value === ""){
+                alert("Du må fylle ut hva");
+            } else {
+                let IT2T = db.ref("prosjekter/IT2T/" + new Date());
+                let IT1 = db.ref("prosjekter/IT1/" + new Date());
+                let IT2F = db.ref("prosjekter/IT2F/" + new Date());
+                let arrayIT = [IT1, IT2F, IT2T];
+                let arrayITN = ["IT1", "IT2F", "IT2T"];
+
+                for(let u=0; u<arrayITN.length; u++){
+                    if(selKlasse.value === arrayITN[u]){
+                        arrayIT[u].set({
+                            elev: inpNavn.value,
+                            link: inpLink.value,
+                            beskrivelse: inpBes.value
+                        })
+                    }
+                }
+
+                inpNavn.value = "";
+                inpLink.value = "";
+                inpBes.value = "";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
