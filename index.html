@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Powerpoint og oppgaver</title>
+    <style>
+
+        .wrapper {
+            border: solid 1px black;
+            position: absolute;
+            top: 150px;
+            width: 600px;
+            background-color: white;
+            display: none;
+        }
+        #ukeDiv {
+            position: relative;
+            margin-top: 10px;
+
+        }
+        body {
+            background: url("https://previews.123rf.com/images/hugofelix/hugofelix1202/hugofelix120200070/12529281-computer-hacker-in-suit-and-tie.jpg");
+            background-size: cover;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <h1 id="overskrift">Ukens oppgaver</h1>
+
+    <input type="number" placeholder="Ukenummer" id="inpUke" min="1">
+    <input type="text" placeholder="Powerpoint link" id="inpPowerpoint">
+    <input type="text" placeholder="Oppgaveteksten" id="oppgaver">
+    <button id="btnLag">Lag uke</button>
+
+
+    <div class="wrapper">
+
+    </div>
+
+    <script>
+
+        const wrapper = document.querySelector(".wrapper");
+        const inpUke = document.querySelector("#inpUke");
+        const inpPowerpoint = document.querySelector("#inpPowerpoint");
+        const inpOppgaver = document.querySelector("#oppgaver");
+        const btnLag = document.querySelector("#btnLag");
+
+
+        btnLag.onclick = function (){
+            wrapper.style.display = "block";
+
+            let ukeDiv = document.createElement("div");
+            let ukeNr  = document.createElement("P");
+            let powerpoint = document.createElement("P");
+            let ukeTekst = document.createElement("P");
+
+            ukeNr.innerText = "Uke " +  inpUke.value;
+            ukeNr.style.fontSize = "25px";
+            powerpoint.innerText = inpPowerpoint.value;
+            ukeTekst.innerText = inpOppgaver.value;
+
+            ukeDiv.appendChild(ukeNr);
+            ukeDiv.appendChild(powerpoint);
+            ukeDiv.appendChild(ukeTekst);
+            wrapper.insertBefore(ukeDiv, wrapper.childNodes[0]);
+        }
+
+
+    </script>
+
+</body>
+</html>
