@@ -1,1 +1,1 @@
-# NettstedSandvikaIT
+# SandvikaIT

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1">
+    <title>index</title>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Pathway+Gothic+One" rel="stylesheet">
+    <style>
+        
+        #cb {
+            display: none;
+        }
+
+
+        #burger {
+            display: flex;
+            width: 16px;
+            height: 16px;
+            flex-direction: column;  /*bortover*/
+            justify-content: space-between;
+            cursor: pointer;
+            position: absolute;
+            left: 8px;
+            top: 8px;
+
+        }
+        #burger > div {
+            background-color: green;
+            height: 2px;
+            transition: 0.5s;
+        }
+
+        #menu {
+            width: 200px;
+            background-color: white;
+            position: absolute;
+            top: 33px;
+            left: -200px;
+            min-height: calc(100vh - 33x);
+            transition: 0.8s;
+            text-align: center;
+            padding-top: 40px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        #menu > a {
+            display: block;
+            margin-bottom: 30px;
+            text-decoration: none;
+            color: green;
+        }
+        #menu > a:hover {
+            color: green;
+        }
+
+
+        #cb:checked ~ #menu {
+            left: 0;
+        }
+        #cb:checked ~ #burger > div:first-child {
+            transform: translateY(7px) rotate(45deg);
+        }
+        #cb:checked ~ #burger > div:nth-child(2) {
+            opacity: 0;
+        }
+        #cb:checked ~ #burger > div:last-child {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+        section {
+            color: snow;
+            text-shadow: 2px 2px 2px black;
+            text-transform: uppercase;
+            font-family: "Trebuchet MS"; Verdana, sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-size: 60px;
+            margin-top: 20px;
+            font-family: 'Orbitron', sans-serif;
+            color: green;
+        }
+        h2{
+            text-align: center;
+            font-size: 40px;
+            margin-top: 10px;
+            font-family: 'Fondamento', cursive;
+
+        }
+        h3{
+            color: white;
+            font-size: 14px;
+            text-align: right;
+            margin-top: 0px;
+            margin-bottom: 200px;
+        }
+        h4{
+            font-family: 'Orbitron', sans-serif;
+            color: green;
+            font-size: 20px;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+            text-align: center;
+
+        }
+
+        .wrapper > div {
+            border: 2px solid black(233,171,88);
+            background-color: rgba(233, 171, 88, .5);
+            padding: 50px;
+            color: black;
+            background-color: #eeeeee;
+            text-align: center;
+        }
+        
+        .bildefremvisning {
+            position: center;
+            width: 800px;
+            height: 400px;
+            background-position: center;
+        }
+
+        .wrapper1 {
+            width: 1100px;
+            margin: auto;
+            padding: 2px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 5px;
+            text-align: center;
+
+        }
+
+        .wrapper1 > div {
+            border: 2px solid;
+            background-color: rgba(50, 50, 50, .5);
+            padding: 5px;
+            color: black;
+            background-color: #eeeeee;
+            text-align: center;
+        }
+
+        .wrapper1 img {
+            width: 100%;
+        }
+        .wrapper1 h4 {
+             height: 30px;
+         }
+        p {
+            font-family: 'Pathway Gothic One', sans-serif;
+            size: 12px;
+            color: green;
+            height: 100px;
+        }
+       #btn {
+           border: none;
+           background-color: inherit;
+           padding: 14px 28px;
+           font-size: 16px;
+           cursor: pointer;
+
+       }
+    </style>
+</head>
+<body>
+<header></header>
+
+<h1>IT på Sandvika</h1>
+
+<input type="checkbox" id="cb">
+<label id="burger" for="cb">
+    <div></div>
+    <div></div>
+    <div></div>
+</label>
+<nav id="menu">
+    <a href="#">#</a>
+    <a href="#">#</a>
+    <a href="#">#</a>
+    <a href="#">#</a>
+    <a href="#">#</a>
+
+
+</nav>
+
+<main>
+
+    <div class="wrapper">
+
+    <img class="bildefremvisning" src="1bilde.jpg">
+    <img class="bildefremvisning" src="2bilde.jpg">
+    <img class="bildefremvisning" src="3bilde.jpg">
+    <img class="bildefremvisning" src="4bilde.jpg">
+    <img class="bildefremvisning" src="5bilde.jpg">
+ </div>
+</main>
+
+<footer>
+    <div class="wrapper1">
+
+        <div class="one">
+            <h4>PROGRAMERING</h4>
+            <img src="programmering.jpg">
+            <p> Kunne lese og bruke dokumentasjon og kode, dermed definere variabler og velge hensiktsmessige datatyper. Programmere enkle og indekserte variabler eller andre kolleksjoner av variabler med valg og gjentakelser. Lage funksjoner med egne metoder og også kunne programmere funksjonene eller metoder. Til slutt finne feil i programmer og gjøre rede for hensikten med objekt orientert utvikling.</p>
+            <button id="btn">Finn ut mer!</button>
+        </div>
+        <div class="two">
+            <h4>MULTIMEDIEUTVIKLING</h4>
+            <img src="multimedie.jpg">
+            <p>Kunne utvikle og planlegge mutlumedieapplikasjoner med egne og andres multimedier som, tekst, bilde, lyd, video og animasjoner. Ta i bruk programmeringsspråk. Til slutt vurdere filformater for multimedier og ta hensyn til brukergrensesnitt og funksjonalitet</p>
+            <button id="btn">Finn ut mer!</button>
+        </div>
+
+        <div class="three">
+            <h4>PLANLEGGING OG DOKUMENTASJON</h4>
+            <img src="planlegging.jpg">
+            <p>Kunne spesifisere og begrunne funksjonelle krav til IT-løsninger. Ta i bruk teknikker og verktøy for planlegging og utviklingen av IT-løsning. I tillegg lage brukerveiledning for IT-løsningen. Til slutt gjøre rede for IT-løsningens utvikling og krav, dermed forklare hensikt med teknisk dokumentasjon og lage for IT-løsninger. Sett vekt på dokumentere grensesnitt mellom ulike delsystemer.</p>
+            <button id="btn">Finn ut mer!</button>
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+
+    var karusell = 0;
+    var btn = document.getElementById("btn");
+
+    carousel();
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("bildefremvisning");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        karusell++;
+        if (karusell > x.length) {karusell = 1}
+        x[karusell-1].style.display = "block";
+        setTimeout(carousel, 2000); // BILDET ENDRER SEG HVERT 2. SEKUND
+    }
+    btn.onclick = function () {
+        document.write("Du trykker på knappen")
+    }
+</script>
+
+
+</body>
+</html>
